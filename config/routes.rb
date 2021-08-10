@@ -3,4 +3,7 @@ Rails.application.routes.draw do
     registrations: 'devise/users/registrations',
     sessions: 'devise/users/sessions'
   }
+  
+  resources :recruits
+  resource :users
 end

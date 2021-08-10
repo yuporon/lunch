@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <h2>ランチ募集一覧</h2>
+  <div id="new-recruit-link">
+    <%= link_to '新規ランチ募集を作成する', new_recruit_path, class: 'hover' %>
+  </div>
+
+  <div class="row">
+    <% @recruits.each do |recruit| %>
+      <div class="col-sm-12 col-lg-6 recruit-panel">
+        <h2><%= recruit.title %></h2>
+        <p><%= recruit.content %></p>
+        <p><%= recruit.user.name %></p>
+        <div class="recruit-links">
+          <%= link_to 'Show', recruit_path(recruit), class: 'btn btn-default' %>
+          <%= link_to 'Edit', edit_recruit_path(recruit), class: 'btn btn-info' %>
+          <%= link_to 'Destroy', recruit, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
