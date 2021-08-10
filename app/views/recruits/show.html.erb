@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-lg-6 recruit-panel">
+      <h2><%= @recruit.shop %></h2>
+      <p><%= @recruit.content %></p>
+      <p><%= @recruit.user.name %></p>
+      
+      <div class="recruit-links">
+        <%= link_to 'Back', recruits_path, class: 'btn btn-default' %>
+        <%= link_to 'Edit', edit_recruit_path(@recruit), class: 'btn btn-info' %>
+        <%= link_to 'Destroy', @recruit, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+      </div>
+    </div>
+  </div>
+</div>
