@@ -1,0 +1,2 @@
+module RecruitesHelper
+end
