@@ -5,6 +5,7 @@ class RecruitsController < ApplicationController
   def index
     @recruits = Recruit.all
   end
+  
   def new
     @recruit = Recruit.new
   end

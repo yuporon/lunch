@@ -1,3 +1,15 @@
 // Place all the styles related to the recruites controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.card_box::after {
+  content: "";
+  display: block;
+  width: 41.7%;
+  height: 0;
+}
+
+.image_box {
+  display: grid;
+  place-items: center;
+}
