@@ -44,7 +44,7 @@ group :development do
   gem 'spring'
   
   gem 'pry-rails'
-  gem 'pry-byebug'
+  # gem 'pry-byebug'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'letter_opener_web', '~> 1.0'
@@ -77,3 +77,6 @@ gem 'jquery-rails'
 gem 'uglifier'
 gem 'coffee-rails'
 gem 'kaminari'
+
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'

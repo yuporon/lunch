@@ -4,6 +4,7 @@
     <div class="col-sm-12 col-lg-6 recruit-panel">
       <h2><%= @recruit.shop %></h2>
       <p><%= @recruit.content %></p>
+      <%= image_tag(@recruit.icon.variant(gravity: :center, resize:"100x100^", crop:"1000x100+0+0").processed) if @recruit.icon.attached? %>
       <p><%= @recruit.user.name %></p>
       
       <div class="recruit-links">

@@ -12,24 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :店名 %>
+    <%= form.label :店名 %><br />
     <%= form.text_field :shop %>
   </div>
 
   <div class="field">
-    <%= form.label :場所 %>
+    <%= form.label :場所 %><br />
     <%= form.text_field :location %>
   </div>
 
   <div class="field">
-    <%= form.label :詳細内容 %>
+    <%= form.label :詳細内容 %><br />
     <%= form.text_area :content %>
   </div>
 
   <div class="field">
-    <%= form.label :画像 %>
-    <%= form.file_field :icon %><br>
+    <%= form.label :画像 %><br />
+    <%= image_tag(recruit.icon.variant(gravity: :center, resize:"100x100^", crop:"1000x100+0+0").processed) if recruit.icon.attached? %>
+    <%= form.file_field :icon %>
   </div>
+
 
   <div class="actions">
     <%= form.submit %>

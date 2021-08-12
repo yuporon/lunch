@@ -10,22 +10,30 @@ class RecruitsController < ApplicationController
   end
 
   def create
-    @recruit = Recruit.create(reqruite_params)
-    redirect_to @recruit
+    @recruit = Recruit.create(recruit_params)
+    @recruit.user_id = current_user.id
+    @recruit.save
+    redirect_to recruits_path
   end
 
   def show
-    @recruit = recruit.find(params[:id])
+    @recruit = Recruit.find(params[:id])
   end
 
   def edit
-    @recruit = recruit.find(params[:id]) 
   end
 
   def update
-    @recruit = recruit.find(params[:id])
-    @recruit.update(reqruite_params)
-    redirect_to @recruit
+    @recruit.update(recruit_params)
+    redirect_to recruits_path
+  end
+
+  def destroy
+    if @recruit.destroy
+      redirect_to recruits_path
+    else
+      render :index
+    end
   end
 
   private
