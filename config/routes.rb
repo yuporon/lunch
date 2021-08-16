@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     sessions: 'devise/users/sessions'
   }
   
+  root to: 'recruits#index'
   resources :recruits do
     member do
       get :assign

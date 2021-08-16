@@ -5,3 +5,10 @@ ja:
         wanted: '募集中'
         full: '満員'
         done: '募集終了'
+  views:
+    pagination:
+      first: '最初'
+      last: '最後'
+      previous: '前'
+      next: '次'
+      truncate: '...'
