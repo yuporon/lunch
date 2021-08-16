@@ -12,7 +12,8 @@
           <div class="col-md-8">
             <div class="card-body">
               <p class="card-name">募集者：<%= recruit.user.name %></h5>
-              <p class="card-text"><%= recruit.content %></p>
+              <p class="card-text">一言：<%= recruit.content %></p>
+              <p class="card-text">期日：<%= recruit.end_on.strftime("%Y年%-m月%-d日 %-H時%-M分") %></p>
               <p class="card-text">ステータス：<%= recruit.status_i18n %></p>
               <div class="recruit-links">
                 <%= link_to 'Show', recruit_path(recruit), class: 'btn btn-outline-secondary' %>
@@ -33,7 +34,8 @@
           <div class="col-md-8">
             <div class="card-body">
               <p class="card-name">募集者：<%= recruit.user.name %></h5>
-              <p class="card-text"><%= recruit.content %></p>
+              <p class="card-text">一言：<%= recruit.content %></p>
+              <p class="card-text">期日：<%= recruit.end_on.strftime("%Y年%-m月%-d日 %-H時%-M分") %></p>
               <p class="card-text">ステータス：<%= recruit.status_i18n %></p>
               <div class="recruit-links">
                 <%= link_to 'Show', recruit_path(recruit), class: 'btn btn-outline-secondary' %>

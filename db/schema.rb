@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2021_08_12_033308) do
     t.string "content"
     t.integer "user_id"
     t.integer "status"
+    t.datetime "end_on"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

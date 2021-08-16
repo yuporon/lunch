@@ -10,7 +10,7 @@ class Recruit < ApplicationRecord
 
   paginates_per 4
   scope :index_all, -> {
-    select(:id, :shop, :location, :content, :status, :user_id)
+    select(:id, :shop, :location, :content, :status, :user_id, :end_on)
     .order(created_at: :asc)
     .includes(:user)
   }

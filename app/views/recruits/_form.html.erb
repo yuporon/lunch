@@ -22,8 +22,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :詳細内容 %><br />
+    <%= form.label :一言 %><br />
     <%= form.text_area :content %>
+  </div>
+
+  <div class="field">
+    <%= form.label :期日 %><br />
+    <%= form.datetime_select :end_on %>
   </div>
 
   <div class="field">

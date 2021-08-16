@@ -44,7 +44,7 @@ class RecruitsController < ApplicationController
   private
 
   def recruit_params
-    params.require(:recruit).permit(:shop, :location, :content, :status, :user_id, :icon)
+    params.require(:recruit).permit(:shop, :location, :content, :status, :user_id, :icon, :end_on)
   end
 
   def set_recruit
