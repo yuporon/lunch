@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
   
-  has_many :owned_recruits,    class_name: "Recruit", foreign_key: "owner_id"
+  has_many :owned_recruits,    class_name: "Recruit", foreign_key: "owner_id", dependent: :destroy
   has_many :assigned_recruits, class_name: "Recruit", foreign_key: "assigne_id"
 
   def assign(user_id)
