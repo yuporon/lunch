@@ -4,14 +4,15 @@
     <div class="row g-0">
       <div class="col-md-8">
         <div class="card-body">
-          <p class="card-name">募集者：<%= @recruit.user.name %></h5>
+          <p class="card-name">募集者：<%= @recruit.owner.name %></h5>
+          <p class="card-text">ご指名：<%= @recruit.assigne.nil? ? "なし" : @recruit.assigne.name%></p>
           <p class="card-text">一言：<%= @recruit.content %></p>
           <p class="card-text">期日：<%= @recruit.end_on.strftime("%Y年%-m月%-d日 %-H時%-M分") %></p>
           <p class="card-text">ステータス：<%= @recruit.status_i18n %></p>
           <div class="recruit-links">
-            <%= link_to 'Show', recruit_path(@recruit), class: 'btn btn-outline-secondary' %>
-            <%= link_to 'Edit', edit_recruit_path(@recruit), class: 'btn btn-outline-success' %>
-            <%= link_to 'Destroy', @recruit, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger' %>
+            <%= link_to '一覧へ戻る', recruit_path(@recruit), class: 'btn btn-outline-secondary' %>
+            <%= link_to '編集', edit_recruit_path(@recruit), class: 'btn btn-outline-success' %>
+            <%= link_to 'アサイン',  assign_recruit_path(@recruit), class: 'btn btn-outline-primary' %>
           </div>
         </div>
       </div>

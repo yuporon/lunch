@@ -1,5 +1,5 @@
 class RecruitsController < ApplicationController
-  before_action :set_recruit, only: %i[ edit update destroy ]
+  before_action :set_recruit, only: %i[ assign edit update destroy ]
   before_action :authenticate_user!
 
   def index
@@ -7,7 +7,10 @@ class RecruitsController < ApplicationController
   end
 
   def my_lunch
-    @recruits = Recruit.where(user_id: current_user).page(params[:page])
+    @recruits = Recruit.where(owner_id: current_user).page(params[:page])
+  end
+
+  def assign
   end
   
   def new
@@ -16,7 +19,7 @@ class RecruitsController < ApplicationController
 
   def create
     @recruit = Recruit.create(recruit_params)
-    @recruit.user_id = current_user.id
+    @recruit.owner_id = current_user.id
     @recruit.save
     redirect_to recruits_path
   end
@@ -44,12 +47,12 @@ class RecruitsController < ApplicationController
   private
 
   def recruit_params
-    params.require(:recruit).permit(:shop, :location, :content, :status, :user_id, :icon, :end_on)
+    params.require(:recruit).permit(:shop, :location, :content, :status, :owner_id, :assigne_id, :icon, :end_on)
   end
 
   def set_recruit
     @recruit = Recruit.find(params[:id])
-    if @recruit.user != current_user
+    if @recruit.owner != current_user
       redirect_to root_path
     end
   end

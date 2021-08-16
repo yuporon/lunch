@@ -13,3 +13,11 @@
   display: grid;
   place-items: center;
 }
+
+.pagenate {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+}

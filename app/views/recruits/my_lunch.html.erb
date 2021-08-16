@@ -1,18 +1,18 @@
-<h2>マイランチ</h2>
+<h2>ランチ募集一覧</h2>
 <div id="new-recruit-link">
   <%= link_to '新規ランチ募集', new_recruit_path, class: 'hover btn btn-light' %>
 </div>
 
 <div class="row justify-content-evenly card_box">
   <% @recruits.each do |recruit| %>
-    <% if recruit.user == current_user %>
-      <div class="card border-success mt-4 col-sm-12 col-lg-5" style="padding: 0">
-        <div class="card-header bg-success bg-gradient bg-opacity-25 fw-bolder fs-4"><%= recruit.shop %></div>
+    <% if recruit.owner_id == current_user.id %>
+      <div class="card border-success mt-3 col-sm-12 col-lg-5" style="padding: 0">
+        <div class="card-header bg-success bg-gradient bg-opacity-25 fw-bolder fs-5"><%= recruit.shop %></div>
         <div class="row g-0">
           <div class="col-md-8">
             <div class="card-body">
-              <p class="card-name">募集者：<%= recruit.user.name %></h5>
-              <p class="card-text">一言：<%= recruit.content %></p>
+              <p class="card-name">募集者：<%= recruit.owner.name %><p>
+              <p>ご指名：<%= recruit.assigne.nil? ? "なし" : recruit.assigne.name%></p>
               <p class="card-text">期日：<%= recruit.end_on.strftime("%Y年%-m月%-d日 %-H時%-M分") %></p>
               <p class="card-text">ステータス：<%= recruit.status_i18n %></p>
               <div class="recruit-links">
@@ -28,19 +28,17 @@
         </div>
       </div>
     <% elsif %>
-      <div class="card border-danger mt-4 col-sm-12 col-lg-5" style="padding: 0">
+      <div class="card border-danger mt-3 col-sm-12 col-lg-5" style="padding: 0">
         <div class="card-header bg-danger bg-gradient bg-opacity-25 fw-bolder fs-4"><%= recruit.shop %></div>
         <div class="row g-0">
           <div class="col-md-8">
             <div class="card-body">
-              <p class="card-name">募集者：<%= recruit.user.name %></h5>
-              <p class="card-text">一言：<%= recruit.content %></p>
+              <p class="card-name">募集者：<%= recruit.owner.name %></p>
+              <p class="card-text">ご指名：<%= recruit.assigne.nil? ? "なし" : recruit.assigne.name%></p>
               <p class="card-text">期日：<%= recruit.end_on.strftime("%Y年%-m月%-d日 %-H時%-M分") %></p>
               <p class="card-text">ステータス：<%= recruit.status_i18n %></p>
               <div class="recruit-links">
                 <%= link_to 'Show', recruit_path(recruit), class: 'btn btn-outline-secondary' %>
-                <%= link_to 'Edit', edit_recruit_path(recruit), class: 'btn btn-outline-success' %>
-                <%= link_to 'Destroy', recruit, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger' %>
               </div>
             </div>
           </div>
@@ -52,4 +50,6 @@
     <% end %>
   <% end %>
 </div>
-<%= paginate @recruits %>
+<div class="pagenate">
+  <%= paginate @recruits %>
+</div>

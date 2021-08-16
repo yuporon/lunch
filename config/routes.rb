@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   }
   
   resources :recruits do
+    member do
+      get :assign
+    end
     collection do
       get :my_lunch
     end

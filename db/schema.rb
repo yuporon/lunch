@@ -44,7 +44,8 @@ ActiveRecord::Schema.define(version: 2021_08_12_033308) do
     t.string "shop"
     t.string "location"
     t.string "content"
-    t.integer "user_id"
+    t.integer "owner_id"
+    t.integer "assigne_id"
     t.integer "status"
     t.datetime "end_on"
     t.datetime "created_at", precision: 6, null: false
