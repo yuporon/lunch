@@ -23,7 +23,7 @@ class RecruitsController < ApplicationController
     if @recruit.save
       redirect_to @recruit
     else
-      render :index
+      render :new
     end
   end
 
@@ -38,7 +38,7 @@ class RecruitsController < ApplicationController
     if @recruit.update(recruit_params)
       redirect_to @recruit
     else
-      render :index
+      render :show
     end
   end
 
