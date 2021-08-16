@@ -6,13 +6,14 @@
 <div class="row justify-content-evenly card_box">
   <% @recruits.each do |recruit| %>
     <% if recruit.user == current_user %>
-      <div class="card border-success mt-3 col-sm-12 col-lg-5" style="padding: 0">
+      <div class="card border-success mt-4 col-sm-12 col-lg-5" style="padding: 0">
         <div class="card-header bg-success bg-gradient bg-opacity-25 fw-bolder fs-4"><%= recruit.shop %></div>
         <div class="row g-0">
           <div class="col-md-8">
             <div class="card-body">
               <p class="card-name">募集者：<%= recruit.user.name %></h5>
               <p class="card-text"><%= recruit.content %></p>
+              <p class="card-text">ステータス：<%= recruit.status_i18n %></p>
               <div class="recruit-links">
                 <%= link_to 'Show', recruit_path(recruit), class: 'btn btn-outline-secondary' %>
                 <%= link_to 'Edit', edit_recruit_path(recruit), class: 'btn btn-outline-success' %>
@@ -26,13 +27,14 @@
         </div>
       </div>
     <% elsif %>
-      <div class="card border-danger mt-3 col-sm-12 col-lg-5" style="padding: 0">
+      <div class="card border-danger mt-4 col-sm-12 col-lg-5" style="padding: 0">
         <div class="card-header bg-danger bg-gradient bg-opacity-25 fw-bolder fs-4"><%= recruit.shop %></div>
         <div class="row g-0">
           <div class="col-md-8">
             <div class="card-body">
               <p class="card-name">募集者：<%= recruit.user.name %></h5>
               <p class="card-text"><%= recruit.content %></p>
+              <p class="card-text">ステータス：<%= recruit.status_i18n %></p>
               <div class="recruit-links">
                 <%= link_to 'Show', recruit_path(recruit), class: 'btn btn-outline-secondary' %>
                 <%= link_to 'Edit', edit_recruit_path(recruit), class: 'btn btn-outline-success' %>

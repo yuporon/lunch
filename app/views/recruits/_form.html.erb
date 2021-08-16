@@ -27,6 +27,13 @@
   </div>
 
   <div class="field">
+    <%= form.label :ステータス %><br />
+    <%= form.radio_button :status, :wanted %><%= form.label :募集中 %>
+    <%= form.radio_button :status, :full %><%= form.label :満員 %>
+    <%= form.radio_button :status, :done %><%= form.label :募集終了 %>
+  </div>
+
+  <div class="field">
     <%= form.label :画像 %><br />
     <%= image_tag(recruit.icon.variant(gravity: :center, resize:"100x100^", crop:"1000x100+0+0").processed) if recruit.icon.attached? %>
     <%= form.file_field :icon %>

@@ -1,0 +1,7 @@
+ja:
+  enums:
+    recruit:
+      status:
+        wanted: '募集中'
+        full: '満員'
+        done: '募集終了'
