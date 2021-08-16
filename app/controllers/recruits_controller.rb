@@ -20,8 +20,11 @@ class RecruitsController < ApplicationController
   def create
     @recruit = Recruit.create(recruit_params)
     @recruit.owner_id = current_user.id
-    @recruit.save
-    redirect_to recruits_path
+    if @recruit.save
+      redirect_to @recruit
+    else
+      render :index
+    end
   end
 
   def show
@@ -32,13 +35,16 @@ class RecruitsController < ApplicationController
   end
 
   def update
-    @recruit.update(recruit_params)
-    redirect_to recruits_path
+    if @recruit.update(recruit_params)
+      redirect_to @recruit
+    else
+      render :index
+    end
   end
 
   def destroy
     if @recruit.destroy
-      redirect_to recruits_path
+      redirect_to recruits_url
     else
       render :index
     end
@@ -53,7 +59,7 @@ class RecruitsController < ApplicationController
   def set_recruit
     @recruit = Recruit.find(params[:id])
     if @recruit.owner != current_user
-      redirect_to root_path
+      redirect_to recruits_url
     end
   end
 end
