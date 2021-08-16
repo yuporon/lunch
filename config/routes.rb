@@ -4,6 +4,11 @@ Rails.application.routes.draw do
     sessions: 'devise/users/sessions'
   }
   
-  resources :recruits
+  resources :recruits do
+    collection do
+      get :my_lunch
+    end
+  end
+
   resource :users
 end

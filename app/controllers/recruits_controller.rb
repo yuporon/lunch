@@ -3,7 +3,11 @@ class RecruitsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @recruits = Recruit.all
+    @recruits = Recruit.index_all.page(params[:page])
+  end
+
+  def my_lunch
+    @recruits = Recruit.where(user_id: current_user).page(params[:page])
   end
   
   def new

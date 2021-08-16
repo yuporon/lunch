@@ -35,6 +35,8 @@
               <p class="card-text"><%= recruit.content %></p>
               <div class="recruit-links">
                 <%= link_to 'Show', recruit_path(recruit), class: 'btn btn-outline-secondary' %>
+                <%= link_to 'Edit', edit_recruit_path(recruit), class: 'btn btn-outline-success' %>
+                <%= link_to 'Destroy', recruit, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger' %>
               </div>
             </div>
           </div>
