@@ -1,5 +1,6 @@
 class RecruitsController < ApplicationController
   before_action :set_recruit, only: %i[ assign edit update destroy ]
+  before_action :timepass
   before_action :authenticate_user!
 
   def index
@@ -48,6 +49,17 @@ class RecruitsController < ApplicationController
     else
       render :index
     end
+  end
+
+  def timepass
+    time = Time.now
+    recruits = Recruit.all
+    recruits.each do |recruit|
+      if recruit.end_on < time
+        recruit.status = 2
+        recruit.save
+      end
+    end 
   end
 
   private
