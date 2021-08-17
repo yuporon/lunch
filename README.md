@@ -1,24 +1,16 @@
-# README
+# ランチ募集サイト
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 概要
 
-Things you may want to cover:
+### 解決する課題
+- リモートワーク化で社員とランチを食べに行く機会が減り、交流が少なくなった
+- 新入社員やインターン生から声をかけづらい
 
-* Ruby version
+### 内容
+- 誰でも簡単にランチ募集ができる
+- ステータス機能により、募集状況もわかる
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### 機能
+- 認証機能
+- 投稿・削除・編集機能
+- ステータス管理
