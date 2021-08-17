@@ -30,6 +30,7 @@ class RecruitsController < ApplicationController
 
   def show
     @recruit = Recruit.find(params[:id])
+    @favorite = current_user.favorites.find_by(recruit_id: @recruit.id)
   end
 
   def edit

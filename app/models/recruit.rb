@@ -2,6 +2,7 @@ class Recruit < ApplicationRecord
   has_one_attached :icon
   belongs_to :owner,    class_name: "User", foreign_key: "owner_id"
   belongs_to :assigne, class_name: "User", foreign_key: "assigne_id", optional: true
+  has_many :favorites, dependent: :destroy
 
   enum status:{
     wanted: 0, #募集中

@@ -7,7 +7,24 @@
   <% @recruits.each do |recruit| %>
     <% if recruit.owner_id == current_user.id %>
       <div class="card border-success mt-lg-3 mt-sm-5 col-sm-12 col-lg-5" style="padding: 0">
-        <div class="card-header bg-success bg-gradient bg-opacity-25 fw-bolder fs-5"><%= recruit.shop %></div>
+        <div class="card-header bg-success bg-gradient bg-opacity-25 fw-bolder fs-4 flexcard">
+          <%= recruit.shop %>
+          <% if !Favorite.exists?(user: current_user, recruit_id: recruit.id) %>
+            <%= link_to favorites_path(recruit), method: :post, class: "favorite-btn favorite-recruit" do %>
+              <div class="i far fa-thumbs-up">
+                <span></span>
+                <%= recruit.favorites.length %>
+              </div>
+            <% end %>
+          <% else %>
+            <%= link_to favorite_path(recruit), method: :delete, class: "favorite-btn favorite-delete" do %>
+              <div class="i far fa-thumbs-up">
+                <span></span>
+                <%= recruit.favorites.length %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
         <div class="row g-0">
           <div class="col-md-8">
             <div class="card-body">
@@ -29,7 +46,24 @@
       </div>
     <% elsif %>
       <div class="card border-danger mt-lg-3 mt-sm-5 col-sm-12 col-lg-5" style="padding: 0">
-        <div class="card-header bg-danger bg-gradient bg-opacity-25 fw-bolder fs-4"><%= recruit.shop %></div>
+        <div class="card-header bg-danger bg-gradient bg-opacity-25 fw-bolder fs-4 flexcard">
+          <%= recruit.shop %>
+          <% if !Favorite.exists?(user: current_user, recruit_id: recruit.id) %>
+            <%= link_to favorites_path(recruit), method: :post, class: "favorite-btn favorite-recruit" do %>
+              <div class="i far fa-thumbs-up">
+                <span></span>
+                <%= recruit.favorites.length %>
+              </div>
+            <% end %>
+          <% else %>
+            <%= link_to favorite_path(recruit), method: :delete, class: "favorite-btn favorite-delete" do %>
+              <div class="i far fa-thumbs-up">
+                <span></span>
+                <%= recruit.favorites.length %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
         <div class="row g-0">
           <div class="col-md-8">
             <div class="card-body">

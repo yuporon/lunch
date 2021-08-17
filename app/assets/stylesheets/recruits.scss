@@ -21,3 +21,12 @@
   transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
 }
+
+.flexcard {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flexcard a {
+  color: black;
+}
