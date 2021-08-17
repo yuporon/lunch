@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root to: 'recruits#index'
   resources :recruits do
     member do
+      resources :favorites, only: [:create, :destroy]
       get :assign
     end
     collection do

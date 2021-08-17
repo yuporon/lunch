@@ -6,6 +6,7 @@ class User < ApplicationRecord
   
   has_many :owned_recruits,    class_name: "Recruit", foreign_key: "owner_id", dependent: :destroy
   has_many :assigned_recruits, class_name: "Recruit", foreign_key: "assigne_id"
+  has_many :favorites, dependent: :destroy
 
   def assign(user_id)
     owned_recruits.create(assigne_id: user_id)
