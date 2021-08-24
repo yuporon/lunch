@@ -1,0 +1,21 @@
+<div class="row g-0">
+  <div class="col-md-8">
+    <div class="card-body">
+      <p class="card-name">募集者：<%= recruit.owner.name %></h5>
+      <p class="card-text">ご指名：<%= recruit.assigne.nil? ? "なし" : recruit.assigne.name%></p>
+      <p class="card-text">一言：<%= recruit.content %></p>
+      <p class="card-text">期日：<%= recruit.end_on.strftime("%Y年%-m月%-d日 %-H時%-M分") %></p>
+      <p class="card-text">ステータス：<%= recruit.status_i18n %></p>
+      <div class="recruit-links">
+        <%= link_to '一覧へ戻る', recruits_path, class: 'btn btn-outline-secondary' %>
+        <% if recruit.owner_id == current_user.id %>
+          <%= link_to '編集', edit_recruit_path(recruit), class: 'btn btn-outline-success' %>
+          <%= link_to 'アサイン',  assign_recruit_path(recruit), class: 'btn btn-outline-primary' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 image_box">
+    <%= image_tag(recruit.icon.variant(gravity: :center, resize:"130x130^", crop:"130x130+0+0").processed, style: "margin: auto;") if recruit.icon.attached? %>
+  </div>
+</div>

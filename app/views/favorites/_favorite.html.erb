@@ -1,0 +1,15 @@
+<% if !Favorite.exists?(user: current_user, recruit_id: recruit.id) %>
+  <%= link_to favorites_path(recruit), method: :post, class: "favorite-btn favorite-create" do %>
+    <div class="i far fa-heart" >
+      <span></span>
+      <%= recruit.favorites.length %>
+    </div>
+  <% end %>
+<% else %>
+  <%= link_to favorite_path(recruit), method: :delete, class: "favorite-btn favorite-delete" do %>
+    <div class="i fas fa-heart">
+      <span></span>
+      <%= recruit.favorites.length %>
+    </div>
+  <% end %>
+<% end %>
