@@ -16,5 +16,3 @@
 // const imagePath = (name) => images(name, true)
 import "bootstrap"
 import "../stylesheets/application"
-
-console.log('Hello World from Webpacker')

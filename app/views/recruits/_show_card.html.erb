@@ -3,6 +3,7 @@
     <div class="card-body">
       <p class="card-name">募集者：<%= recruit.owner.name %></h5>
       <p class="card-text">ご指名：<%= recruit.assigne.nil? ? "なし" : recruit.assigne.name%></p>
+      <p class="card-text">場所：<%= recruit.location %></p>
       <p class="card-text">一言：<%= recruit.content %></p>
       <p class="card-text">期日：<%= recruit.end_on.strftime("%Y年%-m月%-d日 %-H時%-M分") %></p>
       <p class="card-text">ステータス：<%= recruit.status_i18n %></p>
