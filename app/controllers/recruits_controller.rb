@@ -57,7 +57,7 @@ class RecruitsController < ApplicationController
     recruits = Recruit.all
     recruits.each do |recruit|
       if recruit.end_on < time
-        recruit.status = 2
+        recruit.status = "done"
         recruit.save
       end
     end 
